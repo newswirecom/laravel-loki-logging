@@ -1,9 +1,11 @@
 # Laravel Loki Logging
 _Logging to Loki for Laravel_
 
+This project was forked from: https://github.com/devcake-deventer/laravel-loki-logging
+
 ## Usage
-1. Install this package: `composer require devcake-deventer/laravel-loki-logging`
-2. Publish the configuration: `php artisan vendor:publish --provider=Devcake\\LaravelLokiLogging\\L3ServiceProvider`
+1. Install this package: `composer require newswirecom/laravel-loki-logging`
+2. Publish the configuration: `php artisan vendor:publish --provider=Newswirecom\\LaravelLokiLogging\\L3ServiceProvider`
 3. Create a new log channel in `config/logging.php`:
    ```php
    'loki' => [

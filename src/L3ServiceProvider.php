@@ -1,6 +1,6 @@
 <?php
 
-namespace Devcake\LaravelLokiLogging;
+namespace Newswirecom\LaravelLokiLogging;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -6,7 +6,7 @@ return [
     ],
     'format' => env('LOG_FORMAT', '[{level_name}] {message}'),
     'loki' => [
-        'server' => env('LOG_SERVER', 'https://logging.devcake.app'),
+        'server' => env('LOG_SERVER', 'https://logging.newswire.app'),
         'username' => env('LOG_USERNAME', null),
         'password' => env('LOG_PASSWORD', null),
     ],
