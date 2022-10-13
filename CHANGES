@@ -1,0 +1,16 @@
+Version 0.1.0
+ - Allow install with PHP 8 and Laravel 9
+ - Merge pull request #1 from rdemorais/master
+ - Add license file
+ - Atualização para Lavavel 8
+ - Update composer.json
+ - Update composer.json
+ - Update composer.json
+ - Update composer.json
+ - Update composer.json
+ - Update composer.json
+ - Fix Loki push API path
+ - V0.0.1
+ - Initial composer files
+ - Initial commit
+
