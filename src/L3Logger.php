@@ -2,17 +2,19 @@
 
 namespace Newswirecom\LaravelLokiLogging;
 
-
 use Monolog\Handler\HandlerInterface;
 
 class L3Logger implements HandlerInterface
 {
     /** @var resource */
     private $file;
-    /** @var boolean */
+
+    /** @var bool */
     private $hasError;
+
     /** @var array */
     private $context;
+
     /** @var string */
     private $format;
 
@@ -22,7 +24,7 @@ class L3Logger implements HandlerInterface
         $this->context = config('l3.context');
 
         $file = storage_path(L3ServiceProvider::LOG_LOCATION);
-        if (!file_exists($file)) {
+        if (! file_exists($file)) {
             touch($file);
         }
         $this->file = fopen($file, 'a');
@@ -31,7 +33,8 @@ class L3Logger implements HandlerInterface
 
     /**
      * This handler is capable of handling every record
-     * @param array $record
+     *
+     * @param  array  $record
      * @return bool
      */
     public function isHandling(array $record): bool
@@ -51,11 +54,12 @@ class L3Logger implements HandlerInterface
                 unset($tags[$tag]);
             }
         }
+
         return fwrite($this->file, json_encode([
-                'time' => now()->getPreciseTimestamp(),
-                'tags' => $tags,
-                'message' => $message
-            ]) . "\n");
+            'time' => now()->getPreciseTimestamp(),
+            'tags' => $tags,
+            'message' => $message,
+        ])."\n");
     }
 
     public function handleBatch(array $records): void
@@ -82,13 +86,16 @@ class L3Logger implements HandlerInterface
     {
         $message = $format;
         foreach ($context as $key => $value) {
-            if (!is_string($value)) continue;
+            if (! is_string($value)) {
+                continue;
+            }
             $message = str_replace(
                 sprintf('{%s}', $key),
                 $value,
                 $message
             );
         }
+
         return $message;
     }
 }
